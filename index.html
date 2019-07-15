@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Easy Recipe Wizard
+</title>
+<!-- -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="HandheldFriendly" content="true" />
+<meta name="MobileOptimized" content="width" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="mystyle.css" media="screen" type="text/css">
+
+<style>
+.thumbnail:hover {
+  box-shadow: 10px 10px 5px grey;
+}
+.thumbnail{
+
+outline:1px solid black;
+}
+
+.fix_btn{
+display:none;
+width:100%;
+padding:1%;
+position:relative;
+margin-left:auto;
+margin-right:auto;
+bottom:0.3%;
+}
+
+.alert_msg {
+display: inline-block;
+width:100%;
+border: solid black 1px;
+padding: 1%;
+}
+
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width initial-scale=1">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script>
+
+
+var itemList="",j=0;
+function insert(n){
+var i;
+i =itemList.indexOf("|"+n+"|",0);
+
+if(i<0){
+
+itemList=itemList+"|"+n+"|";
+form1.list.value = itemList;
+j=j+1;
+}
+else{
+
+itemList=itemList.replace("|"+n+"|","")
+form1.list.value=itemList;
+j=j-1;
+}
+ var a = document.getElementsByClassName("alert_msg");
+  var f = document.getElementsByClassName("fix_btn");
+ 
+if(j>=3){
+  
+  f[0].style.display = "block";
+  a[0].style.display = "none";
+}
+else{
+ f[0].style.display = "none";
+ a[0].style.display = "inline-block";
+}
+}
+ 
+
+function myFunction(s) {
+  
+  if(document.getElementById(s).style.color =="red"){
+     document.getElementById(s).style.color ="black";
+  }
+  else{
+    document.getElementById(s).style.color ="red";
+  }
+}
+</script>
+
+
+
+</head>
+<body>
+
+<div id="heading">
+<span id="image">
+<!--<img src="icon1.png" class="img-fluid" style="width:10%;height:10%; padding:5px;float:left;margin-right:3%"/>-->
+
+<span class="h1">Easy Recipe Wizard</span>
+
+
+<!--
+<ul>
+<li id="list"><a href=" ">About</a>
+<li id="list"><a href=" ">Help</a>
+</ul>
+</span>
+-->
+</div>
+
+
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="image-1.jpg"  class="d-block w-100 test" style="width:95%; height:auto" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="image-2.jpg" class="d-block w-100 test" style="width:95%; height:auto" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="image-3.jpg" class="d-block w-100 test" style="width:95%; height:auto" alt="...">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+
+  </div>
+  
+<!--bottom part -->
+<!--Bottom part    -->
+<br>
+<br>
+<h1 class="container-fluid" style="letter-spacing:3px; ">
+Ingredients
+</h1>
+<br>
+<br>
+
+<form id="form1" action="recipePage.php" method="POST">
+
+
+<!--The image  -->
+
+<div class="container">
+<div class="row">
+<div class="col-lg-3 col-xs-6">
+<div class="thumbnail" onclick="myFunction('1'); javascript:insert('chicken');">
+
+  <img src="chicken.jpg" class="img-rounded">
+  
+  <div class="caption">
+		<center>   <div id="1" ><p><b><h3>Chicken</h3></b></p></div>   </center>
+          </div>
+    
+</div>
+</div>
+
+<div  class="col-lg-3 col-xs-6">
+<div class="thumbnail" onclick="myFunction('2');javascript:insert('fish');">
+ 
+  <img src="fish.jpg" class="img-rounded" >
+  
+  <div class="caption">
+         <center>   <div id="2"><p><b><h3>Fish</b></h3></p></div> </center>
+          </div>
+ 
+</div>
+</div>
+
+<div  class="col-lg-3 col-xs-6">
+<div class="thumbnail" onclick="myFunction('3');javascript:insert('egg');">
+ 
+  <img src="egg.jpg" class="img-rounded" >
+ 
+  <div class="caption">
+         <center>    <div id="3"><p><b><h3>Egg</b></h3></p></div>  </center>
+          </div>
+ 
+</div>
+</div>
+
+
+
+
+
+<div  class="col-lg-3 col-xs-6">
+<div class="thumbnail" onclick="myFunction('4');javascript:insert('tomato');">
+
+  <img src="tomato.jpg" class="img-rounded" >
+  <div class="caption">
+          <center>  <div id="4"><p><b><h3>Tomato</b></h3></p></div>  </center>
+          </div>
+ 
+</div>
+</div>
+
+<div  class="col-lg-3 col-xs-6">
+<div class="thumbnail" onclick="myFunction('5');javascript:insert('carrot');">
+ 
+  <img src="carrot.jpg" class="img-rounded">
+  <div class="caption">
+          <center>  <div id="5"><p><b><h3>Carrot</b></h3></p></div>  </center>
+          </div>
+ 
+</div>
+</div>
+
+<div  class="col-lg-3 col-xs-6">
+<div class="thumbnail" onclick="myFunction('6');javascript:insert('cabbage');">
+ 
+  <img src="cabbage.jpg" class="img-rounded" >
+  <div class="caption">
+          <center>  <div id="6"><p><b><h3>Cabbage</b></h3></p></div>  </center>
+          </div>
+ 
+</div>
+</div>
+
+
+
+
+
+<div  class="col-lg-3 col-xs-6">
+<div class="thumbnail" onclick="myFunction('7');javascript:insert('onion');">
+
+  <img src="onion.jpg" class="img-rounded">
+  <div class="caption">
+         <center>   <div id="7"><p><b><h3>Onion</b></h3></p></div>  </center>
+          </div>
+ 
+</div>
+</div>
+
+<div  class="col-lg-3 col-xs-6">
+<div class="thumbnail" onclick="myFunction('8');javascript:insert('mango');">
+ 
+  <img src="mango.jpg" class="img-rounded">
+  <div class="caption">
+          <center>  <div id="8"><p><b><h3>Mango</b></h3></p></div>  </center>
+          </div>
+ 
+</div>
+</div>
+
+<div  class="col-lg-3 col-xs-6">
+<div class="thumbnail" onclick="myFunction('9');javascript:insert('coconut');">
+ 
+  <img src="coconut.jpg" class="img-responsive" >
+  <div class="caption">
+          <center>  <div id="9"><p><b><h3>Coconut</b></h3></p></div>  </center>
+          </div>
+
+</div>
+</div>
+
+<br>
+
+<div  class="col-lg-3 col-xs-6">
+<div class="thumbnail" onclick="myFunction('10');javascript:insert('cauliflower');">
+ 
+  <img src="cauliflower.jpg" class="img-rounded">
+  <div class="caption">
+        <center>  <div id="10"><p><b><h3>Cauliflower</b></h3></p></div>  </center>
+          </div>
+ 
+</div>
+</div>
+
+<div  class="col-lg-3 col-xs-6">
+<div class="thumbnail" onclick="myFunction('11');javascript:insert('maggi');">
+ 
+  <img src="maggi.jpg" class="img-rounded">
+  <div class="caption">
+         <center>   <div id="11"><p><b><h3>Noodles</b></h3></p></div>  </center>
+          </div>
+ 
+</div>
+</div>
+
+<div  class="col-lg-3 col-xs-6">
+<div class="thumbnail" onclick="myFunction('12');javascript:insert('potato');">
+ 
+  <img src="potato.jpg" class="img-responsive" >
+  <div class="caption">
+          <center>  <div id="12"><p><b><h3>Potato</b></h3></p></div>  </center>
+          </div>
+
+</div>
+</div>
+
+
+</div>
+
+</div>
+
+<input type="hidden" name="list">
+<p id="demo"></p>
+
+<div style="margin-left:auto;margin-right:auto;"><input class="btn-primary fix_btn" style="width:95%;margin-left:auto;margin-right:auto;" type="submit" value="Show Recipe" onsubmit="recipePage.php" ></div> 
+<center><p class="alert_msg" style="width:95%">Select Minimum 3</p>
+</center>
+</form>
+
+
+</body>
+
+</html>
+
+<!-- -->
+</body>
+
+
+
+
+
+
+</html>
